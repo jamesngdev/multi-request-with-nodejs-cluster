@@ -1,0 +1,6 @@
+curl -x pr.pyproxy.com:16666 -U pikimin1-zone-resi-region-us:Longbien1 -v 'https://www.walmart.com/orchestra/home/graphql' \
+[[@header]]\
+ -H 'cookie': '[[@cookie]]'\
+ --data-raw $'{"query":"query GetLoginOptions($input:UserOptionsInput!){getLoginOptions(input:$input){loginOptions{...LoginOptionsFragment}errors{...LoginOptionsErrorFragment}}}fragment LoginOptionsFragment on LoginOptions{loginId canUsePassword canUsePhoneOTP canUseEmailOTP loginPhoneLastFour signInPreference loginPreference lastLoginPreference hasRemainingFactors}fragment LoginOptionsErrorFragment on IdentityLoginOptionsError{code message}","variables":{"input":{"loginId":"[[@email]]","loginIdType":"EMAIL"}}}'\
+ --compressed\
+ --http2
